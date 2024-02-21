@@ -1,10 +1,14 @@
-FROM node:15
+FROM node:18-slim
+
+RUN apt-get update && apt-get install python3 wget -y
+
+USER node
 
 WORKDIR /usr/src/app
 
-COPY . .
+# COPY . .
 
-RUN npm install
+# RUN npm install
 
 EXPOSE 3000
 CMD [ "node", "index.js" ]
